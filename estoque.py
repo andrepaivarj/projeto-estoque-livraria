@@ -34,17 +34,28 @@ def adicao_livros_catalogo(livros):
     novo_livro = Livro(nome=nome_livro,autor=nome_autor,ano=ano_livro,estoque=quant_livro_novo)
     livros.append(novo_livro)
     estoque_atual(livros)
+
+def receber_avaliacao(livros):
+    cliente = input('\nDigite o nome do cliente: ')
+    nota = float(input('\nDigite a nota do cliente: '))
+    nome_livro = input('\nQual livro receberá a avaliação: ')
+    for livro in livros:
+        if livro.nome.lower() == nome_livro.lower():
+            livro.receber_avaliacao(cliente,nota)
+            print('\nAvaliação feita com sucesso!\n')
+            return
     
 def main():
     livros = []
     while True:
         menu = input(
-            'Menu App Livraria\n'
+            '\nMenu App Livraria\n'
             'Selecione a opção:\n'
             '(1) para acessar o catálogo de livros atual\n'
             '(2) para adicionar um livro novo ao catálogo\n'
             '(3) Adicionar livros ao estoque\n'
             '(4) Subtrair livros do estoque\n'
+            '(5) Receber uma avaliação\n'
             '(F) para desativar o programa.\n'
             'Digite a opção: '
         ).upper()
@@ -57,6 +68,8 @@ def main():
             adicao_material(livros)
         elif menu == '4':
             subtracao_material(livros)
+        elif menu == '5':
+            receber_avaliacao(livros)
         elif menu == 'F':
             print("Programa encerrado.")
             break
