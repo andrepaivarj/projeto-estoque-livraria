@@ -4,7 +4,9 @@ Foi criado um projeto de gerenciamento de um estoque virtual de uma livraria, on
  - Nome do Autor;
  - Ano de publicação;
  - Estoque do livro.
+
 A partir desses dados, é possível:
+
 - Alterar a quantidade de estoque;
 - Adicionar novos livros ao catálogo.
  
